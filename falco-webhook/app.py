@@ -17,7 +17,8 @@ def hello_world():
 
 def _remove_allow_ingress_label(pod, namespace):
     app.logger.info(f"Removing label from pod [{pod}] in namespace [{namespace}]")
-    v1.patch_namespaced_pod(pod, namespace, {"metadata": {"labels": {"allow-ingress-to": "none"}}})
+    v1.patch_namespaced_pod(pod, namespace,
+                            {"metadata": {"labels": {"allow-ingress-to": "none", "quarantine": "enabled"}}})
 
 
 @app.post("/")

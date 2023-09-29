@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-only-labeled-pods
+  namespace: rob
+spec:
+  podSelector:
+    matchLabels:
+      quarantine: enabled
+  policyTypes:
+    - Egress
+  egress: []
