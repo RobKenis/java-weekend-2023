@@ -5,7 +5,6 @@ from kubernetes import client, config
 app = Flask(__name__)
 app.logger.setLevel(logging.INFO)
 
-config.load_kube_config()
 v1 = client.CoreV1Api()
 
 
