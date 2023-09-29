@@ -13,6 +13,7 @@ spec:
       labels:
         app: webhook
     spec:
+      serviceAccountName: webhook
       containers:
         - name: webhook
           image: ghcr.io/robkenis/java-weekend-2023/webhook:latest
