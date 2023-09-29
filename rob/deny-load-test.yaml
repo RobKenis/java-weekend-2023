@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-only-labeled-pods
+  namespace: rob
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector: { }
+          podSelector:
+            matchLabels:
+              allow-ingress-to: nginx
+      ports:
+        - port: 80
+          protocol: TCP
