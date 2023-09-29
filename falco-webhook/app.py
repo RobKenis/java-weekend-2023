@@ -1,11 +1,12 @@
 import logging
 
 from flask import Flask, request
-from kubernetes import client
+from kubernetes import client, config
 
 app = Flask(__name__)
 app.logger.setLevel(logging.INFO)
 
+config.load_incluster_config()
 v1 = client.CoreV1Api()
 
 
