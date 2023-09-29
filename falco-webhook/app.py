@@ -1,6 +1,7 @@
-from flask import Flask, request
 import logging
-from kubernetes import client, config
+
+from flask import Flask, request
+from kubernetes import client
 
 app = Flask(__name__)
 app.logger.setLevel(logging.INFO)
