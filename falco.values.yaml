@@ -10,6 +10,9 @@ falcosidekick:
     disableauth: true
     service:
       type: NodePort
+  config:
+    webhook:
+      address: "http://webhook/"
 customRules:
   rob.yaml: |-
     - rule: do_not_tcpdump

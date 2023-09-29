@@ -8,3 +8,4 @@ helm: helm-add-falco
 .PHONY: falco
 falco:
 	helm upgrade falco falcosecurity/falco --namespace falco --create-namespace -f falco.values.yaml --install
+	kubectl apply -f webhook-manifests/
