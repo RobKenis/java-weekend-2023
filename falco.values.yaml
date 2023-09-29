@@ -1,0 +1,12 @@
+driver:
+  kind: ebpf
+falcosidekick:
+  enabled: true
+  replicaCount: 1
+  webui:
+    enabled: true
+    replicaCount: 1
+    ttl: 1d
+    disableauth: true
+    service:
+      type: NodePort
