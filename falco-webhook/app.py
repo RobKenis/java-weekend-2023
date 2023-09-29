@@ -13,5 +13,8 @@ def hello_world():
 @app.post("/")
 def falco():
     app.logger.info("Falco alert received")
-    app.logger.info(request.get_json())
+    body = request.get_json()
+    if body['priority'] == 'Warning' and body['rule'] == 'do_not_tcpdump':
+        app.logger.info(f"TCPDUMP detected in [{body['output_fields']['k8s.pod.name']}] "
+                        f"in namespace [{body['output_fields']['k8s.ns.name']}]")
     return "OK"
