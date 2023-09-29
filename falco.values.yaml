@@ -10,3 +10,14 @@ falcosidekick:
     disableauth: true
     service:
       type: NodePort
+customRules:
+  rob.yaml: |-
+    - rule: do_not_tcpdump
+      desc: warn when tcpdump is executed
+      condition: >
+         proc.name = tcpdump    
+      output: >
+        tcpdump
+        (user=%user.name container_id=%container.id container_name=%container.name 
+        shell=%proc.name parent=%proc.pname cmdline=%proc.cmdline)    
+      priority: WARNING
